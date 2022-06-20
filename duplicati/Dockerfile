@@ -18,12 +18,12 @@ ENV DUPLICATI_DOWNLOAD_URL ${DUPLICATI_DOWNLOAD_URL}
 RUN set -xe && \
 	echo "**** install packages ****" && \
 	apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-		ca-certificates-mono \
 		jq \
 		libgdiplus \
-		mono-reference-assemblies-facades \
 		sqlite-libs \
-		terminus-font && \
+		terminus-font
+
+RUN set -xe && \
 	echo "**** install duplicati ****" && \
 	mkdir -p /app/duplicati && \
 	if [ -z ${VERSION} ]; then \

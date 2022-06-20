@@ -15,14 +15,15 @@ ENV DUPLICATI_VER ${DUPLICATI_VER}
 ARG DUPLICATI_DOWNLOAD_URL=https://github.com/duplicati/duplicati/releases/download/v${DUPLICATI_VER}/duplicati-${DUPLICATI_VER}.zip
 ENV DUPLICATI_DOWNLOAD_URL ${DUPLICATI_DOWNLOAD_URL}
 
-RUN set -xe && \
-	echo "**** install packages ****" && \
-	apk add --no-cache -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-		jq \
+RUN apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing && \
+    apk add --no-cache --virtual=.build-dependencies ca-certificates \
+    	jq \
 		libgdiplus \
 		sqlite-libs \
-		terminus-font
-
+		terminus-font && \
+    cert-sync /etc/ssl/certs/ca-certificates.crt && \
+    apk del .build-dependencies
+    
 RUN set -xe && \
 	echo "**** install duplicati ****" && \
 	mkdir -p /app/duplicati && \

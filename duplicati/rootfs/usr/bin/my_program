@@ -1,3 +1,24 @@
 #!/bin/bash
 
-echo "All done!" > /share/example_addon_output.txt
+USER=root
+
+mkdir -p \
+	/config/scripts
+
+# update certs for mono
+if [[ ! -f "/app/duplicati/donecerts" ]]; then
+	echo "*** Running mono cert sync ***"
+	cert-sync --quiet /etc/ssl/certs/ca-certificates.crt
+	touch "/app/duplicati/donecerts"
+fi
+
+cd /app/duplicati || exit
+
+echo "Starting Duplicati."
+exec s6-setuidgid ${USER:-abc} \
+	mono Duplicati.Server.exe \
+	--webservice-interface=any \
+	--server-datafolder=/config \
+	--webservice-allowed-hostnames=*
+
+echo "All done!"

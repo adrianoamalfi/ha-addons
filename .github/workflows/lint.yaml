@@ -26,7 +26,8 @@ jobs:
 
   lint:
     name: Lint add-on ${{ matrix.path }}
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: [self-hosted, ubuntu-latest]
     needs: find
     strategy:
       matrix:

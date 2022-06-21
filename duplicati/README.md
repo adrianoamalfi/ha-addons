@@ -2,6 +2,9 @@
 
 _Example add-on to use as a blueprint for new add-ons._
 
+[![Builder](https://github.com/adrianoamalfi/ha-addons/actions/workflows/builder.yaml/badge.svg)](https://github.com/adrianoamalfi/ha-addons/actions/workflows/builder.yaml)
+[![Lint](https://github.com/adrianoamalfi/ha-addons/actions/workflows/lint.yaml/badge.svg)](https://github.com/adrianoamalfi/ha-addons/actions/workflows/lint.yaml)
+
 ![Supports aarch64 Architecture][aarch64-shield]
 ![Supports amd64 Architecture][amd64-shield]
 ![Supports armhf Architecture][armhf-shield]

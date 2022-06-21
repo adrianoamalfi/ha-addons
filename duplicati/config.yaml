@@ -21,6 +21,9 @@ uart: true
 hassio_api: true
 hassio_role: manager
 homeassistant_api: true
+
+webui: http://[HOST]:[PORT:8200]
+
 map:
   - config:rw
   - ssl:rw
@@ -32,4 +35,4 @@ options:
   message: "Hello world duplicati..."
 schema:
   message: "str?"
-#image: "ghcr.io/adrianoamalfi/{arch}-addon-duplicati"
+image: "ghcr.io/adrianoamalfi/{arch}-addon-duplicati"

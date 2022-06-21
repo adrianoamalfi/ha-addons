@@ -9,18 +9,9 @@ RUN \
     "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
 
 # Duplicati ARG & ENV
-ARG DUPLICATI_VER=2.0.6.104-2.0.6.104_canary_2022-06-15
-ENV DUPLICATI_VER ${DUPLICATI_VER}
-
-ARG DUPLICATI_DOWNLOAD_URL=https://github.com/duplicati/duplicati/releases/download/v${DUPLICATI_VER}/duplicati-${DUPLICATI_VER}.zip
-ENV DUPLICATI_DOWNLOAD_URL ${DUPLICATI_DOWNLOAD_URL}
-
 RUN apk add --no-cache mono --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing
-
 RUN apk add --no-cache --virtual=.build-dependencies ca-certificates
-
 RUN cert-sync /etc/ssl/certs/ca-certificates.crt
-
 RUN apk del .build-dependencies
 
 RUN set -xe && \
@@ -43,7 +34,6 @@ RUN set -xe && \
 
 # Copy root filesystem
 COPY rootfs /
-
 
 # ports and volumes
 EXPOSE 8200

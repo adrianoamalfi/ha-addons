@@ -10,14 +10,14 @@ arch:
 
 ingress: true
 ingress_port: 8200
-ingress_stream: true
+#ingress_stream: true
 panel_icon: mdi:microsoft-visual-studio-code
 startup: services
 init: false
-uart: true
-hassio_api: true
-hassio_role: manager
-homeassistant_api: true
+#uart: true
+#hassio_api: true
+#hassio_role: manager
+#homeassistant_api: true
 
 #webui: http://[HOST]:[PORT:8200]
 

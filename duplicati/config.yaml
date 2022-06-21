@@ -19,7 +19,7 @@ hassio_api: true
 hassio_role: manager
 homeassistant_api: true
 
-webui: http://[HOST]:[PORT:8200]
+#webui: http://[HOST]:[PORT:8200]
 
 map:
   - config:rw
